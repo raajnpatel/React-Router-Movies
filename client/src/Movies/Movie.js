@@ -11,14 +11,13 @@ const Movie = (props) => {
         axios
             .get(`http://localhost:5000/api/movies/${id}`)
             .then(response => {
-                console.log(response);
                 setMovie(response.data);
             })
             .catch(error => {
                 console.error(error);
             });
 
-    });
+    },[]);
 
     // Uncomment this only when you have moved on to the stretch goals
     const saveMovie = () => {

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {Route} from "react-router-dom";
 import SavedList from './Movies/SavedList';
 import MovieList from "./Movies/MovieList";
-import MovieCard from "./Movies/MovieCard";
 import Movie from "./Movies/Movie";
 
 const App = () => {
@@ -16,9 +15,10 @@ const App = () => {
     <div>
       <SavedList list={savedList} />
       <Route exact path = "/" component = {MovieList}/>
-      <Route path = "/movies/:id" component = {Movie}/>
+      <Route path = "/movies/:id" component = {(props) =><Movie {...props} addToSavedList = {addToSavedList}/>}/>
     </div>
   );
 };
 
 export default App;
+
